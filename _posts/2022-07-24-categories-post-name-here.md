@@ -1,6 +1,6 @@
 ---
-title: "[포스팅 예시] 이곳에 제목을 입력하세요"
-excerpt: "본문의 주요 내용을 여기에 입력하세요"
+title: "[포스팅 예시] 미래에서 온 편지🍀"
+excerpt: "쿼카둥씨🕴🏻"
 
 categories:
   - Categories1
@@ -12,10 +12,11 @@ permalink: /categories1/post-name-here/
 toc: true
 toc_sticky: true
 
-date: 2020-05-21
+date: 2025-06-05
 last_modified_at: 2021-10-09
 ---
 
-## 🦥 본문
 
-본문은 여기에 ...
+# 예언
+당신은 쿼카둥씨와 원더랜드를 볼거시다 🕴🏻🪄
+
