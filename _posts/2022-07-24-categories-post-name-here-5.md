@@ -1,0 +1,82 @@
+---
+title: "문자열 다루기 기본"
+excerpt: "지수표기법, isNaN"
+
+categories:
+  - Categories2
+tags:
+  - [tag1, tag2]
+
+permalink: /categories2/문자열 다루기 기본/
+
+toc: true
+toc_sticky: true
+
+date: 2024-06-08
+last_modified_at: 2024-06-08
+---
+
+문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+
+**입출력 예**
+| s | return |
+| --- | --- |
+| "a234" | false |
+| "1234" | true |
+
+**오답이었던 테스트 케이스**
+| s | result |
+| --- | --- |
+| "10e1" | false |
+| "0001e0" | false |
+## 📗 지수표기법이란?
+| s | result |
+| --- | --- |
+| "10e1" | false |
+| "0001e0" | false |
+
+**여기서 “e”는 무엇을 뜻하는가?**
+
+프로그래밍 언어에서는 실수를 표기할 때 **지수 표기법을 지원한다.** 
+예를 들어 5e3은 5x1000을, -4.01e-2는 -0.0401을 의미한다. 
+그런데 문자열을 실수나 정수로 변환하거나, 해당 문자열을 숫자로 인식할 수 있는지 판단할 때 지수 표기법이 쓰이는 경우가 있다. 문자열 안에 숫자가 아닌 문자가 있어도 지수 표기법으로 읽어서 숫자로 판별하는 것이다. 
+이에 유의하여 라이브러리를 사용해야 한다.
+⇒ 숫자를 포함한 **문자열 ‘e’는 지수 형식으로 인식하여 ‘숫자’로 판별한다는 뜻**
+
+![image](/assets/images/posts_img/readme/문자열_다루기_기본-지수표기법.png)
+
+## 나의 풀이
+```jsx
+function solution(s) {
+    if(s.length === 4 || s.length === 6) {
+        if(!s.includes("e")){
+            return !isNaN(s)
+        } else {
+            return false
+        }
+    } else {
+      return false  
+    }
+}
+
+// 코드 줄이면
+
+function solution(s) {
+    return (s.length === 4 || s.length === 6) && !s.includes("e") && !isNaN(s);
+}
+// 굳이 삼항연산자를 사용할 필요X 결과가 boolean값으로 나오기 때문
+```
+
+### 오답코드
+```jsx
+function solution(s) {
+    if(s.length === 4 || s.length === 6) {
+        return Number.isInteger(s * 1)
+    } else {
+      return false  
+    }
+}
+```
+- `parseInt()`는 문자열을 정수로 **변환할 수 있는 문자열까지의 숫자를 반환**하기 때문에 적절하지 않다.
+    - console.log(parse//Int('1004하니'))     // 결과 1004
+- `isInteger(s * 1)`은 굳이 사용할 필요가 없다. 더 간단한 `isNaN()`을 사용!!
