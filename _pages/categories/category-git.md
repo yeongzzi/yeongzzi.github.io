@@ -2,7 +2,7 @@
 title: "Git"
 layout: category
 permalink: /categories/git/
-author_profile: false
+author_profile: true
 taxonomy: Git
 sidebar:
   nav: "categories"
